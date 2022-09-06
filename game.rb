@@ -2,6 +2,7 @@ require_relative 'player'
 
 class Game
   attr_reader :title
+  attr_reader :players
 
   def initialize(title)
     @title = title.capitalize
