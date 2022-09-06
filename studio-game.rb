@@ -41,14 +41,25 @@ class Game
   def add_player(player)
     @players << player
   end
+
+  def play
+    puts "There are #{@players.size} in #{@title}:\n\n"
+
+    @players.each do |player|
+      puts player
+    end
+
+    @players.each do |player|
+      player.blam
+      player.w00t
+      player.w00t
+
+      puts player
+    end
+  end
 end
 
 player1 = Player.new("moe")
 player2 = Player.new("larry", 60)
 player3 = Player.new("curly", 125)
 players = [player1, player2, player3]
-
-puts "There are #{players.size} players in the game:"
-players.each do |player|
-  puts player
-end
