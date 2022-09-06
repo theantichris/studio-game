@@ -34,6 +34,8 @@ player1 = Player.new("moe")
 player2 = Player.new("larry", 60)
 player3 = Player.new("curly", 125)
 
-puts player1
-puts player2
-puts player3
+players = [player1, player2, player3]
+puts "There are #{players.size} players in the game:"
+players.each do |player|
+  puts player
+end
