@@ -1,4 +1,5 @@
 require_relative 'player'
+require_relative 'die'
 
 class Game
   attr_reader :title
@@ -23,13 +24,19 @@ class Game
     puts "\n\n"
 
     @players.each do |player|
-      player.blam
-      player.w00t
-      player.w00t
+      die = Die.new
+      number_rolled = die.roll
 
-      puts player
+      case number_rolled
+      when 1..2
+        player.blam
+      when 3..4
+        puts "#{player.name} was skipped."
+      else
+        player.w00t
+      end
 
-      puts "\n\n"
+      puts "#{player}\n\n"
     end
   end
 end

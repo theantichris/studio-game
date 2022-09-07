@@ -1,18 +1,37 @@
 require_relative 'game'
 
 describe Game do
-  it "has a capitalized title" do
-    game = Game.new("butts")
+  before do
+    $stdout = StringIO.new
+    @game = Game.new("Knuckleheads")
 
-    game.title.should == "Butts"
+    @initial_health = 100
+    @player = Player.new("moe", @initial_health)
+
+    @game.add_player(@player)
   end
 
-  it "adds a player" do
-    game = Game.new("butts")
-    player = Player.new("larry")
+  it "w00ts the player if a high number is rolled" do
+    Die.any_instance.stub(:roll).and_return(5)
 
-    game.add_player(player)
+    @game.play
 
-    game.players.should == [player]
+    @player.health.should == @initial_health + 15
+  end
+
+  it "skips the player if a medium number is rolled" do
+    Die.any_instance.stub(:roll).and_return(3)
+
+    @game.play
+
+    @player.health.should == @initial_health
+  end
+
+  it "blams the player if a low number is rolled" do
+    Die.any_instance.stub(:roll).and_return(1)
+
+    @game.play
+
+    @player.health.should == @initial_health - 10
   end
 end
