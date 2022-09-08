@@ -34,8 +34,6 @@ class Game
 
       @players.each do |player|
         GameTurn.take_turn(player)
-
-        puts "#{player}\n\n"
       end
     end
   end
