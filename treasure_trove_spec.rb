@@ -42,4 +42,10 @@ describe TreasureTrove do
   it "has a crowbar worth 400 points" do
     TreasureTrove::TREASURES[5].should == Treasure.new(:crowbar, 400)
   end
+
+  it "returns a random treasure" do
+    treasure = TreasureTrove.random
+
+    TreasureTrove::TREASURES.should include(treasure)
+  end
 end
