@@ -49,5 +49,11 @@ class Game
     wimpy.each do |player|
       puts "#{player.name} (#{player.health})"
     end
+
+    puts "\n#{@title} High Scores:"
+    sorted_players = @players.sort { |a, b| b.score <=> a.score }
+    sorted_players.each do |player|
+      puts "#{player.name.ljust(20, '.')} #{player.health}"
+    end
   end
 end
