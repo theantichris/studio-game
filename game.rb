@@ -57,10 +57,15 @@ class Game
       print_name_and_health(player)
     end
 
+    @players.each do |player|
+      puts "\n#{player.name}'s point totals:"
+      puts "#{player.points} grand total points"
+    end
+
     puts "\n#{@title} High Scores:"
     sorted_players = @players.sort { |a, b| b.score <=> a.score }
     sorted_players.each do |player|
-      puts "#{player.name.ljust(20, '.')} #{player.health}"
+      puts "#{player.name.ljust(20, '.')} #{player.score}"
     end
   end
 end
