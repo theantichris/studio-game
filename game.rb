@@ -65,7 +65,7 @@ class Game
 
     @players.each do |player|
       puts "\n#{player.name}'s point totals:"
-      puts "#{player.points} grand total points"
+      puts "#{player.points} treasure total points"
     end
 
     puts "\n#{@title} High Scores:"
