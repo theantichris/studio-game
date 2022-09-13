@@ -11,7 +11,7 @@ module GameTurn
     when 1..2
       player.blam
     when 3..4
-      puts "#{player.name} was skipped."
+      player.skip
     else
       player.w00t
     end
