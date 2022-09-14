@@ -16,6 +16,16 @@ class Game
     @players << player
   end
 
+  def load_players(filename = "players.csv")
+    players = []
+
+    File.readlines(filename).each do |line|
+      name, health = line.split(",")
+      player = Player.new(name, Integer(health))
+      add_player(player)
+    end
+  end
+
   def play(rounds)
     puts "There are #{@players.size} players in #{@title}:"
 
