@@ -60,6 +60,17 @@ class Game
     @players.reduce(0) { |sum, player| sum + player.points }
   end
 
+  def save_high_scores(filename = "high_scores.txt")
+    File.open(filename, "w") do |file|
+      file.puts "#{@title} High Scores:"
+
+      sorted_players = @players.sort { |a, b| b.score <=> a.score }
+        sorted_players.each do |player|
+        file.puts "#{player.name.ljust(20, '.')} #{player.score}"
+      end
+    end
+  end
+
   def print_stats
     strong, wimpy = @players.partition { |player| player.strong? }
 

@@ -23,3 +23,5 @@ loop do
     puts "Please enter a number or 'quit'."
   end
 end
+
+knuckleheads.save_high_scores
