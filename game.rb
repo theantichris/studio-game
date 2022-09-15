@@ -60,13 +60,17 @@ class Game
     @players.reduce(0) { |sum, player| sum + player.points }
   end
 
+  def high_score_entry(player)
+    "#{player.name.ljust(20, '.')} #{player.score}"
+  end
+
   def save_high_scores(filename = "high_scores.txt")
     File.open(filename, "w") do |file|
       file.puts "#{@title} High Scores:"
 
       sorted_players = @players.sort { |a, b| b.score <=> a.score }
         sorted_players.each do |player|
-        file.puts "#{player.name.ljust(20, '.')} #{player.score}"
+        file.puts high_score_entry(player)
       end
     end
   end
@@ -101,7 +105,7 @@ class Game
     puts "\n#{@title} High Scores:"
     sorted_players = @players.sort { |a, b| b.score <=> a.score }
     sorted_players.each do |player|
-      puts "#{player.name.ljust(20, '.')} #{player.score}"
+      puts high_score_entry(player)
     end
   end
 end
