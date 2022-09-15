@@ -4,7 +4,20 @@ describe 'ClumsyPlayer' do
   before do
     $stdout = StringIO.new
 
-    @player = ClumsyPlayer.new("klutz")
+    @initial_health = 100
+    @boost_factor = 5
+
+    @player = ClumsyPlayer.new("klutz", @initial_health, @boost_factor)
+  end
+
+  it 'has boost factor' do
+    @player.boost_factor.should == 5
+  end
+
+  it 'gets boost factor number of 200ts when w00ted' do
+    @player.w00t
+
+    @player.health.should == @initial_health + (15 * @boost_factor)
   end
 
   it 'only gets half the point value for each treasure' do
