@@ -2,10 +2,9 @@ require_relative 'player'
 
 class ClumsyPlayer < Player
   def found_treasure(treasure)
-    treasure_points = treasure.points / 2.0
-    @found_treasures[treasure.name] += treasure_points
+    damaged_treasure = Treasure.new(treasure.name, treasure.points / 2.0)
 
-    puts "#{@name} found a #{treasure.name} worth #{treasure_points} points."
+    super(damaged_treasure)
   end
 end
 
