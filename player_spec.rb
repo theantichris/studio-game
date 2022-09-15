@@ -80,15 +80,6 @@ describe Player do
     ]
   end
 
-  it 'can be created from a CSV line' do
-    line = "moe,100"
-
-    player = Player.from_cvs(line)
-
-    player.name.should == "Moe"
-    player.health.should == 100
-  end
-
   context "with a health greater than 100" do
     before do
       @player = Player.new("larry", 150)

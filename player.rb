@@ -18,11 +18,6 @@ class Player
     "I'm #{@name} with health = #{@health}, points = #{points}, and score = #{score}."
   end
 
-  def self.from_cvs(line)
-    name, health = line.split(",")
-    Player.new(name, Integer(health))
-  end
-
   def blam
     @health -= 10
     puts "\n#{@name} got blammed!"
