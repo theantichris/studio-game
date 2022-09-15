@@ -5,7 +5,7 @@ class Player
   include Playable
 
   attr_accessor :name
-  attr_reader :health
+  attr_accessor :health
 
   def initialize(name, health = 100)
     @name = name.capitalize
