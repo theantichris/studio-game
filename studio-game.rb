@@ -1,15 +1,12 @@
 require_relative 'game'
 require_relative 'clumsy_player'
-
-player1 = Player.new("moe")
-player2 = Player.new("larry", 60)
-player3 = Player.new("curly", 125)
+require_relative 'berserk_player'
 
 knuckleheads = Game.new("Knuckleheads")
 knuckleheads.load_players
 
-klutz = ClumsyPlayer.new("klutz", 105)
-knuckleheads.add_player(klutz)
+knuckleheads.add_player(ClumsyPlayer.new("klutz", 105))
+knuckleheads.add_player(BerserkPlayer.new("berserker", 50))
 
 loop do
   puts "\nHow many game rounds? ('quit' to exit)"
