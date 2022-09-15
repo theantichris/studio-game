@@ -18,6 +18,11 @@ class Player
     "I'm #{@name} with health = #{@health}, points = #{points}, and score = #{score}."
   end
 
+  def self.from_cvs(line)
+    name, health = line.split(",")
+    Player.new(name, Integer(health))
+  end
+
   def blam
     @health -= 10
     puts "\n#{@name} got blammed!"
@@ -40,13 +45,13 @@ class Player
     puts "#{@name}'s treasures: #{@found_treasures}"
   end
 
-def each_found_treasure
-  @found_treasures.each do | name, points |
-    treasure = Treasure.new(name, points)
+  def each_found_treasure
+    @found_treasures.each do | name, points |
+      treasure = Treasure.new(name, points)
 
-    yield(treasure)
+      yield(treasure)
+    end
   end
-end
 
   def score
     @health + points
