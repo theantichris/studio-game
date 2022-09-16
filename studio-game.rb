@@ -2,11 +2,11 @@ require_relative 'game'
 require_relative 'clumsy_player'
 require_relative 'berserk_player'
 
-knuckleheads = Game.new("Knuckleheads")
+knuckleheads = StudioGame::Game.new("Knuckleheads")
 knuckleheads.load_players
 
-knuckleheads.add_player(ClumsyPlayer.new("klutz", 105))
-knuckleheads.add_player(BerserkPlayer.new("berserker", 50))
+knuckleheads.add_player(StudioGame::ClumsyPlayer.new("klutz", 105))
+knuckleheads.add_player(StudioGame::BerserkPlayer.new("berserker", 50))
 
 loop do
   puts "\nHow many game rounds? ('quit' to exit)"
